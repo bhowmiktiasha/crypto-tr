@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #263238;
+  background-color: black;
 }
 
 ul {
@@ -17,12 +17,31 @@ ul {
   width: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .coinlist-image {
+   width: 25px;
+  }
+}
+
+.mkt {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .mkt {
+    display: none;
+  }
+}
+
+
+
+
 .coinlist-item {
   display: flex;
 }
 
 .coinsummary {
-  border-color: white !important;
+  border-color:black !important;
   border-style: outset !important;
 }
 

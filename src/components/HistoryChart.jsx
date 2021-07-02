@@ -1,6 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import Chartjs from "chart.js";
 import { historyOptions } from "../chartConfigs/chartConfigs";
+import { Button } from "@material-ui/core";
+import {Link} from "react-router-dom";
+
 
 const HistoryChart = ({ data }) => {
   const chartRef = useRef();
@@ -47,7 +50,7 @@ const HistoryChart = ({ data }) => {
     if (detail) {
       return (
         <>
-          <p className="my-0">${detail.current_price.toFixed(2)}</p>
+          <p className="my-0 " style={{color: "white"}}> ${detail.current_price.toFixed(2)}</p>
           <p
             className={
               detail.price_change_24h < 0
@@ -62,7 +65,15 @@ const HistoryChart = ({ data }) => {
     }
   };
   return (
-    <div className="bg-white border mt-2 rounded p-3">
+
+     <>
+    <div>
+    <h1 className="text-center text-warning mt-3 mb-4" style={{fontSize:"25px"}}>CryptoMarket</h1>
+    <Link to="/">
+     <Button variant = "outlined" style={{color: "white", borderColor:"white"}}>Back</Button>
+     </Link>
+  </div>
+    <div className="bg-black border mt-2 rounded p-3">
       <div>{renderPrice()}</div>
       <div>
         <canvas ref={chartRef} id="myChart" width={250} height={250}></canvas>
@@ -89,6 +100,7 @@ const HistoryChart = ({ data }) => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 
