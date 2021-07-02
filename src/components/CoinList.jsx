@@ -10,7 +10,6 @@ const CoinList = () => {
 	const { watchList, deleteCoin } = useContext(WatchListContext);
 	const [isLoading, setIsLoading] = useState(false);
 	const [visible, setVisible] = useState(5);
-	
 
 	const [search, setSearch] = useState('');
 	console.log(watchList);
@@ -43,16 +42,15 @@ const CoinList = () => {
 			setSearch(e.target.value.toLowerCase());
 		};
 
-		const loadMore = () => {
-			setVisible(visible + 5);
-		};
+		// const loadMore = () => {
+		// 	setVisible(visible + 5);
+		// };
 
 		const sortByPriceHigh = () => {
 			const sorted = [...coins].sort((a, b) => {
 				return b.current_price - a.current_price;
 			});
 			setCoins(sorted);
-			//alert(sorted[0].name);
 		};
 
 		const sortByPriceLow = () => {
@@ -60,10 +58,11 @@ const CoinList = () => {
 				return a.current_price - b.current_price;
 			});
 			setCoins(sorted);
-			//alert(sorted[0].name);
 		};
 
-	
+		const loadMore = () => {
+			setVisible(visible + 5);
+		};
 
 		return (
 			<ul className="coinlist list-group mt-2">
@@ -74,7 +73,7 @@ const CoinList = () => {
 							onClick={sortByPriceLow}
 							style={{
 								color: 'white',
-								border: '2px solid #ffc107',
+								border: '2px solid white',
 								marginRight: '12px',
 								borderRadius: '3px',
 								fontSize: '14px',
@@ -88,7 +87,7 @@ const CoinList = () => {
 							onClick={sortByPriceHigh}
 							style={{
 								color: 'white',
-								border: '2px solid #ffc107',
+								border: '2px solid white',
 								borderRadius: '3px',
 								fontSize: '14px',
 								backgroundColor: 'transparent',
@@ -111,8 +110,7 @@ const CoinList = () => {
 									sortByPriceLow={sortByPriceLow}
 									sortByPriceHigh={sortByPriceHigh}
 									deleteCoin={deleteCoin}
-									visible = {visible}
-									
+									visible={visible}
 								/>
 							);
 						} else if (coin.name.toLowerCase().includes(search.toLowerCase())) {
@@ -124,8 +122,7 @@ const CoinList = () => {
 									sortByPriceLow={sortByPriceLow}
 									serach={search}
 									deleteCoin={deleteCoin}
-									visible = {visible}
-									
+									visible={visible}
 								/>
 							);
 						}
@@ -141,8 +138,7 @@ const CoinList = () => {
 								serach={search}
 								sortByPriceLow={sortByPriceLow}
 								deleteCoin={deleteCoin}
-								visible = {visible}
-								
+								visible={visible}
 							/>
 						);
 					})}
