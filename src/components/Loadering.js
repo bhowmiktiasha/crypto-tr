@@ -2,7 +2,7 @@ import React from 'react';
 
 import Loader from 'react-loader-spinner';
 
-const Loading = () => {
+const Loadering = () => {
 	return (
       
         <div style={{position: "fixed", top: "0", left: "0", background: "black", zIndex: "998", height: "100%", width: "100%"}}>
@@ -14,4 +14,4 @@ const Loading = () => {
 	);
 };
 
-export default Loading;
+export default Loadering;

@@ -6,23 +6,24 @@ import CoinSummaryPage from "./pages/CoinSummaryPage";
 // import Header from "./components/Header";
 import "./App.css";
 import { WatchListContextProvider } from "./context/watchListContext";
-import Loading from "./components/Loading";
+
+import Loadering from "./components/Loadering";
 
 
 
 const App = () => {
 
-	const [isLoading, setisLoading] = useState(true);
+	const [isLoader, setisLoader] = useState(true);
 
 	useEffect(() => {
 		setTimeout(() => {
-			setisLoading(false);
+			setisLoader(false);
 		}, 2500);
 	});
 
   return (
     <>
-    {isLoading ? <Loading /> :
+    {isLoader ? <Loadering /> :
     <div className="container">
       <WatchListContextProvider>
         <BrowserRouter>

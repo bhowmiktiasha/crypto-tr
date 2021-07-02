@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Coin = ({ coin, deleteCoin, search }) => {
+const Coin = ({ coin, deleteCoin, search , visible}) => {
 	return (
 		<Link to={`/coins/${coin.id}`} className="text-decoration-none my-1 coin">
 			<li
 				search={search}
+				visible= {visible}
 				className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-white"
 				style={{ backgroundColor: 'black', borderColor: 'white' }}
 			>

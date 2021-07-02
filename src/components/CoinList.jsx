@@ -4,28 +4,13 @@ import coinGecko from '../apis/coinGecko';
 import { WatchListContext } from '../context/watchListContext';
 import Coin from './Coin';
 import styles from './Search.module.css';
-// import Pagination from '@material-ui/lab/Pagination';
-// import { makeStyles } from '@material-ui/core/styles';
-
-// const useStyles = makeStyles((theme) => ({
-// 	root: {
-// 	  '& > * + *': {
-// 		marginTop: theme.spacing(2),
-// 	  },
-// 	},
-//   }));
 
 const CoinList = () => {
-	// const classes = useStyles();
-
 	const [coins, setCoins] = useState([]);
 	const { watchList, deleteCoin } = useContext(WatchListContext);
 	const [isLoading, setIsLoading] = useState(false);
 	const [visible, setVisible] = useState(5);
-	const [page, setPage] = useState(6);
-	// const[sorting, setSorting] = useState(coins);
-	// const[currentPage, setCurretPage] = useState(0);
-	// const[postperPage, setPostPerPage] = useState(10);
+	
 
 	const [search, setSearch] = useState('');
 	console.log(watchList);
@@ -78,9 +63,7 @@ const CoinList = () => {
 			//alert(sorted[0].name);
 		};
 
-		const handlePage = (event, value) => {
-			setPage(value);
-		};
+	
 
 		return (
 			<ul className="coinlist list-group mt-2">
@@ -117,10 +100,6 @@ const CoinList = () => {
 					</div>
 				</div>
 
-				{/* <div>
-					<button onClick={sortByPrice}>click </button>
-				</div>
- */}
 				{coins
 					.filter((coin) => {
 						if (search === '') {
@@ -132,7 +111,8 @@ const CoinList = () => {
 									sortByPriceLow={sortByPriceLow}
 									sortByPriceHigh={sortByPriceHigh}
 									deleteCoin={deleteCoin}
-									page={page}
+									visible = {visible}
+									
 								/>
 							);
 						} else if (coin.name.toLowerCase().includes(search.toLowerCase())) {
@@ -144,7 +124,8 @@ const CoinList = () => {
 									sortByPriceLow={sortByPriceLow}
 									serach={search}
 									deleteCoin={deleteCoin}
-									page={page}
+									visible = {visible}
+									
 								/>
 							);
 						}
@@ -160,7 +141,8 @@ const CoinList = () => {
 								serach={search}
 								sortByPriceLow={sortByPriceLow}
 								deleteCoin={deleteCoin}
-								page={page}
+								visible = {visible}
+								
 							/>
 						);
 					})}
@@ -181,10 +163,6 @@ const CoinList = () => {
 						</Button>
 					</Grid>
 				)}
-
-				{/* <div className={classes.root}>
-				<Pagination count={10} page={page} onChange={handlePage} />
-				</div> */}
 			</ul>
 		);
 	};
